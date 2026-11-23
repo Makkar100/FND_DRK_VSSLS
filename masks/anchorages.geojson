@@ -1,0 +1,97 @@
+{
+  "type": "FeatureCollection",
+  "name": "drk_vssl_anchorages_v0",
+  "description": "APPROXIMATE initial anchorage / harbour / OPL masks for the Eastern OPL AOI [1.2,104.0]-[2.6,105.5]. Hand-drawn boxes, NOT official MPA or Marine Department Malaysia limits. Clipped to lon >= 104.0, so Singapore's main Eastern Anchorage (AEW, ~103.87-103.95E) is outside the AOI. Coordinates are [lon, lat], WGS84. Check against official charts and ping-density heatmaps before relying on them.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "sg_changi_small_craft",
+        "name": "Singapore east: Changi barge / small-craft holding anchorages (east of 104.0E)",
+        "zone_type": "anchorage",
+        "country": "SG",
+        "counts_as_drift": true,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); verify against MPA chart"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.000, 1.265], [104.030, 1.265], [104.030, 1.318], [104.000, 1.318], [104.000, 1.265]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "sg_changi_general_purpose",
+        "name": "Singapore east: Changi General Purpose anchorage (ACGP, approx.)",
+        "zone_type": "anchorage",
+        "country": "SG",
+        "counts_as_drift": true,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); verify against MPA chart"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.030, 1.278], [104.095, 1.278], [104.095, 1.340], [104.030, 1.340], [104.030, 1.278]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "my_pengerang_anchorage",
+        "name": "Johor: Tg Pengelih / Pengerang / Teluk Ramunia anchorages (approx.)",
+        "zone_type": "anchorage",
+        "country": "MY",
+        "counts_as_drift": true,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); verify against Johor Port limits"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.095, 1.330], [104.290, 1.330], [104.290, 1.368], [104.095, 1.368], [104.095, 1.330]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "my_johor_river_tg_langsat",
+        "name": "Johor: Johor River mouth / Tg Langsat harbour area (approx.)",
+        "zone_type": "harbour",
+        "country": "MY",
+        "counts_as_drift": true,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); verify against Johor Port limits"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.000, 1.425], [104.065, 1.425], [104.065, 1.475], [104.000, 1.475], [104.000, 1.425]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "opl_east_tg_penyusop",
+        "name": "Eastern OPL inner waiting zone, off Tg Penyusop (approx.)",
+        "zone_type": "opl_waiting",
+        "country": "MY",
+        "counts_as_drift": false,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); OPL loitering is a signal, so this zone tags gaps but does not by itself mark them as drift"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.300, 1.345], [104.400, 1.345], [104.400, 1.420], [104.300, 1.420], [104.300, 1.345]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "opl_east_main",
+        "name": "Eastern OPL main waiting zone, east of Horsburgh (approx.)",
+        "zone_type": "opl_waiting",
+        "country": "MY",
+        "counts_as_drift": false,
+        "approximate": true,
+        "source": "hand-drawn initial mask v0 (2026-11-23); OPL loitering is a signal, so this zone tags gaps but does not by itself mark them as drift"
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [104.450, 1.360], [104.800, 1.360], [104.800, 1.550], [104.450, 1.550], [104.450, 1.360]
+      ]]}
+    }
+  ]
+}

@@ -6,3 +6,5 @@ __pycache__/
 data/
 Phase0-steps.pdf
 local_docs/
+outputs/
+Notes/
