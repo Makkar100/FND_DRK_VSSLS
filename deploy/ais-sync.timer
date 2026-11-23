@@ -1,0 +1,12 @@
+[Unit]
+Description=Run AIS sync (Google Drive) and verified prune every hour
+
+[Timer]
+# 30 past each hour: after the compactor (:15) has written the previous hour.
+OnCalendar=*-*-* *:30:00
+Persistent=true
+RandomizedDelaySec=120
+Unit=ais-sync.service
+
+[Install]
+WantedBy=timers.target

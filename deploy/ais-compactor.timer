@@ -1,0 +1,12 @@
+[Unit]
+Description=Run the AIS compactor every hour, shortly after the hour closes
+
+[Timer]
+# 15 past each hour: the previous hour has finished plus the 10 minute grace period.
+OnCalendar=*-*-* *:15:00
+Persistent=true
+RandomizedDelaySec=60
+Unit=ais-compactor.service
+
+[Install]
+WantedBy=timers.target

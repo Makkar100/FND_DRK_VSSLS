@@ -1,0 +1,20 @@
+[Unit]
+Description=AIS compactor (SQLite staging -> ZSTD Parquet: ais_positions, ais_static, collector_health)
+After=ais-collector.service
+
+[Service]
+Type=oneshot
+User=ais
+Group=ais
+WorkingDirectory=/opt/ais
+EnvironmentFile=/etc/ais/ais.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/ais/.venv/bin/python /opt/ais/compactor.py
+Nice=10
+IOSchedulingClass=idle
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/ais/data

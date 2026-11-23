@@ -1,0 +1,28 @@
+[Unit]
+Description=AIS collector (aisstream.io websocket -> SQLite micro-batch staging + collector_health)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ais
+Group=ais
+WorkingDirectory=/opt/ais
+EnvironmentFile=/etc/ais/ais.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/ais/.venv/bin/python /opt/ais/collector.py
+Restart=always
+RestartSec=5
+# Give the collector time to flush the RAM buffer and write a final health row.
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/ais/data
+
+[Install]
+WantedBy=multi-user.target

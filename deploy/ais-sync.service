@@ -1,0 +1,22 @@
+[Unit]
+Description=AIS sync to Google Drive (rclone) and verified prune of local data
+Wants=network-online.target
+After=network-online.target ais-compactor.service
+
+[Service]
+Type=oneshot
+User=ais
+Group=ais
+WorkingDirectory=/opt/ais
+EnvironmentFile=/etc/ais/ais.env
+ExecStart=/bin/bash /opt/ais/sync_and_prune.sh
+Nice=10
+IOSchedulingClass=idle
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+# rclone reads its config from the ais user's home (~/.config/rclone) and must be
+# able to write it back when the Google Drive OAuth token is refreshed.
+ProtectHome=read-only
+ReadWritePaths=/opt/ais/data -/home/ais/.config/rclone
